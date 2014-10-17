@@ -36,3 +36,13 @@ script: |-
   type ant || { echo "I expected ant to be available. Aborting."; exit 1; }
   type mvn || { echo "I expected maven to be available. Aborting."; exit 1; }
   type gradle || { echo "No gradle command found...aborting"; exit 1; }
+
+  # download gradle wrapper
+  mkdir tmp
+  cd tmp
+  gradle wrapper
+  chmod +x ./gradlew
+  ./gradlew
+  cd ..
+  rm -rf tmp
+  
